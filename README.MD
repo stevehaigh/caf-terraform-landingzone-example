@@ -36,7 +36,7 @@ We are using a tool called Rover. It's Dockerized and local development is done 
 # Select subscription where Level 0 is provisioned
 [vscode@e1d53c1ca8ae ~]$ az account set -s <your-subscription-id>
 # Initialize Launchpad to WE (bootstrap level 0)
-[vscode@e1d53c1ca8ae ~]$ rover /tf/caf/landingzones/launchpad apply -launchpad -var-file="/tf/caf-custom/tfvars/sandpit/launchpad_opensource_light.tfvars"
+[vscode@e1d53c1ca8ae ~]$ rover -lz /tf/caf/landingzones/caf_launchpad -a apply -launchpad -var-file="/tf/caf-custom/tfvars/sandpit/launchpad_opensource_light.tfvars"
 
 ```
 
@@ -44,9 +44,9 @@ We are using a tool called Rover. It's Dockerized and local development is done 
 
 ```bash
 # Deploy the Level 1 example LZ using Rover
-[vscode@e1d53c1ca8ae ~]$ rover /tf/caf-custom/landingzones/level1_landingzone_example plan -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars"
-[vscode@e1d53c1ca8ae ~]$ rover /tf/caf-custom/landingzones/level1_landingzone_example apply -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars"
-[vscode@e1d53c1ca8ae ~]$ rover /tf/caf-custom/landingzones/level1_landingzone_example destroy -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars" -auto-approve
+[vscode@e1d53c1ca8ae ~]$ rover -lz /tf/caf-custom/landingzones/level1_landingzone_example -a plan -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars"
+[vscode@e1d53c1ca8ae ~]$ rover -lz /tf/caf-custom/landingzones/level1_landingzone_example -a apply -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars"
+[vscode@e1d53c1ca8ae ~]$ rover -lz /tf/caf-custom/landingzones/level1_landingzone_example -a destroy -var-file="/tf/caf-custom/tfvars/sandpit/level1_landingzone_example.tfvars" -auto-approve
 ```
 
 # File structure
